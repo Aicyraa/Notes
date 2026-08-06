@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { renderNotes } from "../controllers/indexController.js";
 
-const index = Router()
+const indexRouter = Router()
 
-index.get('', renderNotes)
+indexRouter.get('', renderNotes)
 
-export default index
+export default indexRouter
