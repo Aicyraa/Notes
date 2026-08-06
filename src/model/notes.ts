@@ -1,3 +1,6 @@
+import type { NOTES } from '../types.ts'
+import type { MethodModel } from '../types.ts'
+
 class Note {
    category: string
    message: string
@@ -9,7 +12,12 @@ class Note {
    }
 }
 
-const NOTES = [
+interface NoteData {
+   retrive: () => NOTES[]
+   add: (category: string, message: string) => NOTES[]
+}
+
+const NOTES: NOTES[] = [
    {
       category: 'school',
       message: 'Cisco user accounts Task',
@@ -22,11 +30,15 @@ const NOTES = [
    },
 ]
 
-const data = {
+const data: MethodModel = {
    retrive: () => {
       return NOTES
-   }
+   },
+   add: (category: string, message: string) => {
+      const newNote = new Note(category, message)
+      NOTES.push(newNote)
+      return NOTES
+   },
 }
 
 export default data
-export { Note }
