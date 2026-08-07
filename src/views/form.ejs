@@ -6,6 +6,23 @@
       <title>Document</title>
    </head>
    <body>
-      <h1> new Note </h1>
+      <form method="POST" action="/new/add" >
+         <div class="group">
+            <label for="message"> Message </label>
+            <textarea rows="5" cols="30" name="message" placeholder="Note Message...">
+            </textarea>
+         </div>
+         <div class="group">
+            <label for="category"> Category </label>
+            <select name="category">
+               <option value="" selected disabled hidden>Select Category</option>
+               <option value="programming">Programming</option>
+               <option value="school">School</option>
+               <option value="home">Home</option>
+               <option value="chore">Chores</option>
+            </select>
+         </div>
+         <button type="submit"> Add </button>
+      </form>
    </body>
 </html>

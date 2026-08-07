@@ -7,6 +7,7 @@ function renderNotes(req: Request, res: Response) {
 }
 
 function viewNote(req: Request, res: Response) {
+   // Throw an error if id is invalid!
    const id = req.params.id
    const notes = data.retrive()
    const targetNote = notes.filter(note => note.id === Number(id))
