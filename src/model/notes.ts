@@ -1,33 +1,25 @@
 import type { NOTES } from '../types.ts'
 import type { MethodModel } from '../types.ts'
 
+let lastId = 0
+
 class Note {
+   id: number
    category: string
    message: string
    date: Date
    constructor(category: string, message: string) {
+      this.id = ++lastId
       this.category = category
       this.message = message
       this.date = new Date()
    }
 }
 
-interface NoteData {
-   retrive: () => NOTES[]
-   add: (category: string, message: string) => NOTES[]
-}
-
 const NOTES: NOTES[] = [
-   {
-      category: 'school',
-      message: 'Cisco user accounts Task',
-      date: new Date(),
-   },
-   {
-      category: 'home',
-      message: 'Laundry and Bedroom cleaning',
-      date: new Date(),
-   },
+   new Note('school', 'Cisco user accounts Task'),
+   new Note('home', 'Laundry and Bedroom cleaning'),
+   new Note('programming', 'Learn RAG and Vectors'),
 ]
 
 const data: MethodModel = {
@@ -38,7 +30,7 @@ const data: MethodModel = {
       const newNote = new Note(category, message)
       NOTES.push(newNote)
       return NOTES
-   },
+   }
 }
 
 export default data
