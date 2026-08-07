@@ -1,6 +1,7 @@
 import type { Request } from 'express'
 
 interface NOTES {
+   id: number
    category: string
    message: string
    date: Date
