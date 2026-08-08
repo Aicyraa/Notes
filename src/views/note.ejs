@@ -1,7 +1,16 @@
-<div class="note-card">
+<div class="note-card" data-id="<%= targetNote.id %>">
    <h3><%= targetNote.message %></h3>
    <div class="details">
       <span class="note-category"> <%= targetNote.category %> </span>
       <span class="note-date"> <%= targetNote.date.toISOString().split('T')[0] %> </span>
    </div>
 </div>
+
+<script>
+   document.querySelectorAll('.note-card').forEach(el => {
+      el.addEventListener('click', e => {
+         const id = el.dataset.id
+         navigation.navigate(`/note/${id}`)
+      })
+   })
+</script>

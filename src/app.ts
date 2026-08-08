@@ -19,6 +19,11 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/', indexRouter)
 app.use('/new', formRouter)
 
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+   console.error(err.message)
+   res.status(401).render('error', { status: 401, message: "ID does't exist" })
+})
+
 app.use((req: Request, res: Response, next: NextFunction) => {
    console.error('Invalid Route')
    res.status(401).render('error', { status: 401, message: 'Invalid Route!' })

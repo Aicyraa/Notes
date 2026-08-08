@@ -7,11 +7,15 @@ function renderNotes(req: Request, res: Response) {
 }
 
 function viewNote(req: Request, res: Response) {
-   // Throw an error if id is invalid!
    const id = req.params.id
+
+   if (data.retrive().length + 1 < Number(id)) {
+      throw new Error(`Note with an id ${id} doesn't exist`)
+   }
+
    const notes = data.retrive()
-   const targetNote = notes.filter(note => note.id === Number(id))
-   res.render('index', { title: 'Notes', notes, targetNote, message: 'Yo' })
+   const targetNote = notes.filter(note => note.id === Number(id))[0]
+   res.render('view', { targetNote })
 }
 
 export { renderNotes, viewNote }

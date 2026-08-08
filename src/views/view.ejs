@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="/style.css">
+      <title> View Note </title>
+   </head>
+   <body>
+      <div class="main">
+         <a href="/" class="back-link">&larr; Back to Notes</a>
+
+         <div class="note-view">
+            <div class="details">
+               <span class="note-category"> <%= targetNote.category %> </span>
+               <span class="note-date"> <%= targetNote.date.toISOString().split('T')[0] %> </span>
+            </div>
+            <h2><%= targetNote.message %></h2>
+         </div>
+      </div>
+   </body>
+</html>
